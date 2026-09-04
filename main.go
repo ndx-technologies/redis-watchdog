@@ -113,9 +113,9 @@ func main() {
 	)
 	flag.StringVar(&redisURL, "redis", "redis://localhost:6379", "Redis URL")
 	flag.StringVar(&namespace, "namespace", "default", "Kubernetes namespace")
-	flag.BoolVar(&dryRun, "dry-run", true, "dry run: log actions but do not create k8s jobs")
+	flag.BoolVar(&dryRun, "dry-run", false, "log actions but do not create k8s jobs")
 	flag.DurationVar(&pingPeriod, "ping-period", 5*time.Second, "Redis ping interval")
-	flag.Var(&checks, "check", "comma-separated check key,cronjob,label,type where type is scard or exists; repeatable; e.g. -check=\"bakery:orders:open:ids,bakery-order-populate-cron,open orders,scard\"")
+	flag.Var(&checks, "check", "comma-separated check key,cronjob,label,type where type is scard or exists; repeatable; e.g. -check=bakery:orders:open:ids,bakery-order-populate-cron,open-orders,scard")
 	flag.Usage = func() {
 		fmt.Fprintln(flag.CommandLine.Output(), doc)
 		flag.PrintDefaults()
