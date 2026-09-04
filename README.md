@@ -1,7 +1,6 @@
 # redis-watchdog
 
-Keep connection to Redis and ping its health.
-If Redis is restarted fresh new, it triggers kubectl jobs to warm it up.
+Watch Redis, when it is cold trigger k8s jobs to warm it up.
 
 Primary motivation for this is to avoid k8s CronJob and its oveheard and reduce pings to 5s.
 
